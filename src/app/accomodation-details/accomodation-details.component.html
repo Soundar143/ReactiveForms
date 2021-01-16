@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card no-border">
+            <div class="header center-align">
+                <h3>Accomodation Details</h3>
+                <small class="caption">All fields are mandatory</small>
+            </div>
+            <form [formGroup]="accomodationDetailsForm" (ngSubmit)="onAccomodationSubmit()">
+                <div class="form-group">
+                    <label for="BookingId">Booking Id</label>
+                    <input formControlName="BookingId" type="text" class="form-control" minlength="4" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="City">City</label>
+                    <div class="col-md-12">
+                        <select class="inherit-width" id="City" formControlName="City">
+                            <option *ngFor="let city of Cities" [ngValue]="city">{{ city }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="HotelRatings">Hotel Ratings</label>
+                    <div class="col-md-12">
+                        <select class="inherit-width" id="HotelRatings" formControlName="HotelRatings">
+                            <option *ngFor="let rating of Ratings" [ngValue]="rating">{{ rating }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Hotels">Hotels</label>
+                    <div class="col-md-12">
+                        <select class="inherit-width" id="Hotels" formControlName="Hotels">
+                            <option *ngFor="let hotel of Hotels" [ngValue]="hotel">{{ hotel }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-goup" [formGroup]="roomType">
+                    <label for="RoomType">Room Type</label>
+                    <div class="same-row">
+                        <div class="col-md-6">
+                            <div class="custom-control custom-radio">
+                                <input id="Single" type="radio" class="custom-control-input" value="Single" name="RoomType"
+                                    formControlName="RoomType">
+                                <label class="custom-control-label" for="Single">Single</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="Double" type="radio" class="custom-control-input" value="Double" name="RoomType"
+                                    formControlName="RoomType">
+                                <label class="custom-control-label" for="Double">Double</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="custom-control custom-radio">
+                                <input id="Deluxe" type="radio" class="custom-control-input" value="Deluxe" name="RoomType"
+                                    formControlName="RoomType">
+                                <label class="custom-control-label" for="Deluxe">Deluxe</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="Suite" type="radio" class="custom-control-input" value="Suite" name="RoomType"
+                                    formControlName="RoomType">
+                                <label class="custom-control-label" for="Suite">Suite</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="NumberOfRooms">Number of Rooms</label>
+                    <input formControlName="NumberOfRooms" type="number" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input placeholder="Estimated Cost" formControlName="EstimatedCost" class="form-control" readonly>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+Value: {{accomodationDetailsForm.value | json}}
+Status: {{accomodationDetailsForm.status}}

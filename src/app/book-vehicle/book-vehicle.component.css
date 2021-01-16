@@ -1,0 +1,19 @@
+.caption {
+  float: right;
+  font-weight: 600;
+}
+.center-align {
+  text-align: center;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.inherit-width {
+  width: inherit;
+}
+
+.same-row {
+  display: flex;
+}
